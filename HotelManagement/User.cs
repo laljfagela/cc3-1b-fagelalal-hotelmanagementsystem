@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,12 +13,15 @@ namespace HotelManagement
         public string Email { get; set; }
         public int PhoneNumber { get; set; }
 
-        public User(string name, string address, string email, int phoneNumber)
+        private string Password { get; set; }
+
+        public User(string name, string address, string email, int phoneNumber, string password)
         {
             Name = name;
             Address = address;
             Email = email;
             PhoneNumber = phoneNumber;
+            Password = password;
         }
     }
 }
