@@ -1,19 +1,15 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using HotelManagementSystem;
 
-using System;
 
 namespace HotelManagement
 {
     public class Reservation
     {
-        public List<Hotel> Hotels { get; set; }
-        public List<Guest> RegisteredUsers { get; set; }
-
         public int RegistrationNumber { get; set; }
         public DateTime CheckInDate { get; set; }
         public DateTime CheckOutDate { get; set; }
@@ -25,6 +21,12 @@ namespace HotelManagement
             CheckInDate = checkInDate;
             CheckOutDate = checkOutDate;
         }
+    }
+
+    public class HotelManagementSystem
+    {
+        public List<Hotel> Hotels { get; set; }
+        public List<Guest> RegisteredUsers { get; set; }
 
         public HotelManagementSystem()
         {
@@ -51,9 +53,15 @@ namespace HotelManagement
                 return;
             }
 
-            Reservation reservation = new Reservation(room.RoomNumber, checkInDate, checkOutDate);
-            hotel.Rooms.Add(room);
+            Reservation reservation = new Reservation(GenerateRegistrationNumber(), checkInDate, checkOutDate);
+ 
             room.IsAvailable = false;
+        }
+
+        private int GenerateRegistrationNumber()
+        {
+
+            return 0; 
         }
     }
 }
