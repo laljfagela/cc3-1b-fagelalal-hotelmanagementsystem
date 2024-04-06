@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,8 +10,8 @@ namespace HotelManagement
     {
         public int TotalNumOfRooms { get; set; }
 
-        public Guest(string name, string address, string email, int phoneNumber, int totalNumOfRooms) :
-            base(name, address, email, phoneNumber)
+        public Guest(string name, string address, string email, string Password, int phoneNumber, int totalNumOfRooms) :
+            base(name, address, email, Password, phoneNumber)
         {
             TotalNumOfRooms = totalNumOfRooms;
         }
