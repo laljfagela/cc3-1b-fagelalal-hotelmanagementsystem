@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using HotelManagementSystem;
 
 
-namespace HotelManagement
+namespace HotelManagementSystem
 {
     public class Reservation
     {
@@ -15,11 +14,18 @@ namespace HotelManagement
         public DateTime CheckOutDate { get; set; }
         public int Duration => (int)(CheckOutDate - CheckInDate).TotalDays;
 
+        private static int registrationSeed = 0;
+
         public Reservation(int registrationNumber, DateTime checkInDate, DateTime checkOutDate)
         {
             RegistrationNumber = registrationNumber;
             CheckInDate = checkInDate;
             CheckOutDate = checkOutDate;
+        }
+
+        private int GenerateRegistrationNumber()
+        {
+            return ++registrationSeed;
         }
     }
 
@@ -58,10 +64,36 @@ namespace HotelManagement
             room.IsAvailable = false;
         }
 
-        private int GenerateRegistrationNumber()
+        public int GenerateRegistrationNumber()
         {
 
             return 0; 
+        }
+
+        public void DisplayAvailableRooms(Hotel hotel)
+        {
+            DisplayAvailableRooms(hotel);
+        }
+
+        public void DisplayHotelInfo(Hotel hotel)
+        {
+            DisplayHotelInfo(hotel);
+        }
+
+
+        public void BookRoom(Hotel starlitHotel, HotelRoom hotelRoom, Guest jinoo, DateTime now, DateTime dateTime)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DisplayReservationDetails(Reservation reservation)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddHotel(Hotel hotel)
+        {
+            Hotels.Add(hotel);
         }
     }
 }
