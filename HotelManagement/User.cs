@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HotelManagement
+namespace HotelManagementSystem
 {
     public class User
     {
@@ -20,8 +20,8 @@ namespace HotelManagement
             Name = name;
             Address = address;
             Email = email;
-            PhoneNumber = phoneNumber;
             Password = password;
+            PhoneNumber = phoneNumber;
         }
     }
 }
