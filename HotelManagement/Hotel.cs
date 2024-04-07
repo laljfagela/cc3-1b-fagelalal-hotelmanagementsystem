@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace HotelManagement
+namespace HotelManagementSystem
 {
     public class Hotel
     {
@@ -19,26 +19,12 @@ namespace HotelManagement
 
         public void DisplayAvailableRooms()
         {
-            Console.WriteLine($"Available rooms in {Name}:");
-            foreach (HotelRoom room in Rooms)
-            {
-                if (room.IsAvailable)
-                {
-                    Console.WriteLine($"Room Number: {room.RoomNumber}, Style: {room.Style}, Price: {room.Price}");
-                }
-            }
+            DisplayAvailableRooms();
         }
 
         public void DisplayBookedRooms()
         {
-            Console.WriteLine($"Booked rooms in {Name}:");
-            foreach (HotelRoom room in Rooms)
-            {
-                if (!room.IsAvailable)
-                {
-                    Console.WriteLine($"Room Number: {room.RoomNumber}, Style: {room.Style}, Price: {room.Price}");
-                }
-            }
+           DisplayBookedRooms();
         }
     }
 }
