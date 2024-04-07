@@ -81,11 +81,6 @@ namespace HotelManagementSystem
         }
 
 
-        public void BookRoom(Hotel starlitHotel, HotelRoom hotelRoom, Guest jinoo, DateTime now, DateTime dateTime)
-        {
-            throw new NotImplementedException();
-        }
-
         public void DisplayReservationDetails(Reservation reservation)
         {
             throw new NotImplementedException();
@@ -94,6 +89,42 @@ namespace HotelManagementSystem
         public void AddHotel(Hotel hotel)
         {
             Hotels.Add(hotel);
+        }
+
+        public void DisplayHotels()
+        {
+            foreach (var hotel in Hotels)
+            {
+                Console.WriteLine($"Hotel Name: {hotel.Name}");
+                Console.WriteLine($"Address: {hotel.Address}");
+            }
+        }
+
+        public void BookRoom(Hotel hotel, HotelRoom room, Guest guest, DateTime checkInDate, DateTime checkOutDate)
+        {
+            if (hotel == null || room == null || guest == null)
+            {
+                Console.WriteLine("Invalid input. Please provide valid hotel, room, and guest information.");
+                return;
+            }
+
+            if (!hotel.Rooms.Contains(room))
+            {
+                Console.WriteLine("Room not found in the hotel.");
+                return;
+            }
+
+            if (!room.IsAvailable)
+            {
+                Console.WriteLine("Room is not available for the specified dates.");
+                return;
+            }
+
+            Reservation reservation = new Reservation(room.RoomNumber, checkInDate, checkOutDate);
+            guest.AddReservation(reservation);
+            room.IsAvailable = false;
+
+            Console.WriteLine($"Room booked successfully for {guest.Name} from {checkInDate.ToShortDateString()} to {checkOutDate.ToShortDateString()}.");
         }
     }
 }
