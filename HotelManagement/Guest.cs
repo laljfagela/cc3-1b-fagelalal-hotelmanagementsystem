@@ -3,17 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HotelManagementSystem;
 
-namespace HotelManagement
+namespace HotelManagementSystem
 {
     public class Guest : User
     {
         public int TotalNumOfRooms { get; set; }
+        public List<Reservation> Reservations { get; set; }
 
-        public Guest(string name, string address, string email, string Password, int phoneNumber, int totalNumOfRooms) :
-            base(name, address, email, Password, phoneNumber)
+        public Guest(string name, string address, string email, int phoneNumber, string password) : base(name, address, email, phoneNumber, password)
         {
-            TotalNumOfRooms = totalNumOfRooms;
+            Reservations = new List<Reservation>();
+        }
+
+        public void DisplayReservations()
+        {
+            DisplayReservations();
+        }
+
+        public void AddReservation(Reservation reservation)
+        {
+            Reservations.Add(reservation);
         }
     }
 }
