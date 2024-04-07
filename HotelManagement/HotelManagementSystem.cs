@@ -43,9 +43,34 @@ namespace HotelManagementSystem
             room.IsAvailable = false;
         }
 
-        public void DisplayAvailableRooms(Hotel hotel)
+        public void DisplayHotels()
         {
-            hotel.DisplayAvailableRooms();
+            foreach (var hotel in Hotels)
+            {
+                Console.WriteLine($"Hotel Name: {hotel.Name}");
+                Console.WriteLine($"Address: {hotel.Address}");
+                Console.WriteLine("Available Rooms:");
+                hotel.DisplayAvailableRooms();
+            }
+        }
+
+        public void DisplayAvailableRooms()
+        {
+            foreach (var room in HotelRoom)
+            {
+                if (room.IsAvailable)
+                {
+                    Console.WriteLine($"Room Number: {room.RoomNumber}");
+                    Console.WriteLine($"Room Style: {room.Style}");
+                    Console.WriteLine($"Price: {room.Price}");
+                }
+            }
+        }
+
+
+        public void DisplayHotelInfo(Hotel hotel)
+        {
+            hotel.DisplayHotelInfo();
         }
 
         public void DisplayBookedRooms(Hotel hotel)
