@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-namespace HotelManagement
+namespace HotelManagementSystem
 {
     public class Receptionist : Guest
     {
         private readonly HotelManagementSystem hotelManagementSystem;
 
-        public Receptionist(HotelManagementSystem hotelManagementSystem)
+        public Receptionist(HotelManagementSystem hotelManagementSystem, string name, string address, string email, string password, int phoneNumber, int totalNumOfRooms) :
+            base(name, address, email, phoneNumber, password)
         {
             this.hotelManagementSystem = hotelManagementSystem ?? throw new ArgumentNullException(nameof(hotelManagementSystem));
         }
@@ -21,29 +21,27 @@ namespace HotelManagement
             if (room.IsAvailable)
             {
                 hotelManagementSystem.MakeReservation(room.Hotel, room, guest, checkInDate, checkOutDate);
-                Console.WriteLine($"{guest.Name} has successfully checked into room {room.RoomNumber}.");
             }
-            else
-            {
-                Console.WriteLine($"Room {room.RoomNumber} is not available for check-in.");
-            }
-        }
-        public void CheckOut(Guest guest, HotelRoom room)
-        {
-            Console.WriteLine($"{guest.Name} has successfully checked out from room {room.RoomNumber}.");
- 
         }
 
+        public void CheckOut(Guest guest, HotelRoom room)
+        {
+            CheckOut(guest, room);  
+        }
 
         public void DisplayAvailableRooms(Hotel hotel)
         {
             hotelManagementSystem.DisplayAvailableRooms(hotel);
         }
 
-
         public void DisplayHotelInfo(Hotel hotel)
         {
             hotelManagementSystem.DisplayHotelInfo(hotel);
+        }
+
+        public void AddReservation(Reservation reservation)
+        {
+            Reservations.Add(reservation);
         }
     }
 }
